@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">SeachView Demo</string>
+  <string name="lbl_settings">Settings</string>
+  <string name="lbl_error">Error</string>
+
+  <!-- various messages -->
+  <string name="msg_please_wait">Please wait..</string>
+
+  <!-- Labels -->
+
+  <string name="lbl_exit">Exit</string>
+  <string name="search_hint">This is da search hint</string>
+
+</resources>
