@@ -155,12 +155,15 @@ public class MainActivity extends ActionBarActivity {
       MenuItemCompat.collapseActionView(searchItem);
   }
 
+  /**
+   * Called when the hardware search button is pressed
+   */
   @Override
   public boolean onSearchRequested() {
     log.trace("onSearchRequested();");
     showSearch(true);
 
-    // dont show the search dialog
+    // dont show the built-in search dialog
     return false;
   }
 }
