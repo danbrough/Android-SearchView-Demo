@@ -14,11 +14,13 @@
     <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
   </style>
 
-  <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
+  <style name="SearchViewStyle" parent="@style/Widget.AppCompat.Light.SearchView">
     <item name="suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
   </style>
 
-  <style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+  <style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light">
+    <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    <item name="searchViewStyle">@style/SearchViewStyle</item>
 
     <!-- colorPrimary is used for the default action bar background -->
     <item name="colorPrimary">@color/primary</item>
@@ -27,13 +29,14 @@
     <item name="colorPrimaryDark">@color/primary_dark</item>
     <!-- <item name="colorAccent">@color/yellow</item> -->
 
-<!--
+
+    <!--
          colorAccent is used as the default value for colorControlActivated,
          which is used to tint widgets
     -->
     <item name="textAppearanceSearchResultTitle">@style/SearchResultTitle</item>
     <item name="textAppearanceSearchResultSubtitle">@style/SearchResultSubtitle</item>
-    <item name="searchViewStyle">@style/SearchViewStyle</item>
+
     <!-- <item name="@android:windowBackground">@color/background_material_dark</item> -->
     <!--
          You can also set colorControlNormal, colorControlActivated
