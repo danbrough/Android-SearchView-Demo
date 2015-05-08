@@ -5,7 +5,7 @@ This is a small demonstration of how I managed to get the Android [SearchView](h
 
 You can find the [source code here](https://github.com/danbrough/Android-SearchView-Demo)
 
-This is a standalone app supporting android versions 8 -> 21 featuring:
+This is a standalone app supporting android versions 8 -> 22 featuring:
 
  - Proper material theme styling of the search view
  - How to wire up the search view to a ContentProvider
