@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <!--
+	<!--
   <item name="menu_test" type="id"/>
   <item name="menu_exit" type="id"/>
   <item name="menu_close" type="id"/>
@@ -25,9 +25,10 @@
   <item name="msg_test" type="id"/>
   <item name="msg_status" type="id"/>
   <item name="msg_info" type="id"/>
-  -->
-  <item name="msg_timeout" type="id"/>
-  <item name="menu_exit" type="id"/>
-  <item name="abc_search_dropdown_item_icons_2line" type="layout">@layout/search_dropdown_item_icons_2line</item>
+	-->
+	<item name="msg_timeout" type="id"/>
+	<item name="menu_exit" type="id"/>
+	<item name="menu_about" type="id"/>
+	<item name="abc_search_dropdown_item_icons_2line" type="layout">@layout/search_dropdown_item_icons_2line</item>
 
 </resources>

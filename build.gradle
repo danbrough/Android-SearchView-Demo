@@ -1,7 +1,10 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}
 
 buildscript {
   repositories { mavenCentral() }
-  dependencies { classpath "com.android.tools.build:gradle:1.2.3" }
+  dependencies { classpath "com.android.tools.build:gradle:1.3.1" }
 }
 
 repositories {
@@ -13,14 +16,13 @@ apply plugin: 'android'
 
 
 android {
-  compileSdkVersion 22
-  buildToolsVersion "22.0.1"
+  compileSdkVersion 23
+  buildToolsVersion "23.0.1"
 
   defaultConfig {
-    versionCode 2
-    versionName 'v2'
+    versionCode 1
     minSdkVersion 8
-    targetSdkVersion 22
+    targetSdkVersion 23
   }
 
   lintOptions { abortOnError false }
@@ -43,6 +45,9 @@ android {
 
     androidTest.setRoot('tests')
   }
+  
+
+  
 }
 
 task run(type: Task, dependsOn: 'installDebug') {
@@ -55,7 +60,7 @@ task run(type: Task, dependsOn: 'installDebug') {
 defaultTasks 'run'
 
 dependencies {  
-  compile 'com.android.support:appcompat-v7:22.+'
+  compile 'com.android.support:appcompat-v7:23.0.+'
   compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 

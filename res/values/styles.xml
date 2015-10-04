@@ -1,39 +1,45 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <style name="SearchResultTitle" parent="@style/TextAppearance.AppCompat.SearchResult.Title">
-    <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
-  </style>
+	<style name="SearchResultTitle" parent="@style/TextAppearance.AppCompat.SearchResult.Title">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+	</style>
 
-  <style name="SearchResultSubtitle" parent="@style/TextAppearance.AppCompat.SearchResult.Subtitle">
-    <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
-  </style>
+	<style name="SearchResultSubtitle" parent="@style/TextAppearance.AppCompat.SearchResult.Subtitle">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+	</style>
 
-  <style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+	<style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
 
-    <!-- colorPrimary is used for the default action bar background -->
-    <item name="colorPrimary">@color/primary</item>
+		<!-- colorPrimary is used for the default action bar background -->
+		<item name="colorPrimary">@color/primary</item>
 
-    <!-- colorPrimaryDark is used for the status bar -->
-    <item name="colorPrimaryDark">@color/primary_dark</item>
-    <item name="textAppearanceSearchResultTitle">@style/SearchResultTitle</item>
-    <item name="textAppearanceSearchResultSubtitle">@style/SearchResultSubtitle</item>
-    <!--
+		<!-- colorPrimaryDark is used for the status bar -->
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="textAppearanceSearchResultTitle">@style/SearchResultTitle</item>
+		<item name="textAppearanceSearchResultSubtitle">@style/SearchResultSubtitle</item>
+		<!--
          colorAccent is used as the default value for colorControlActivated,
          which is used to tint widgets
-    -->
-    <!-- <item name="colorAccent">@color/yellow</item> -->
-    <!--
+		-->
+		<!-- <item name="colorAccent">@color/yellow</item> -->
+		<!--
          You can also set colorControlNormal, colorControlActivated
          colorControlHighlight, and colorSwitchThumbNormal.
-    -->
-    <!-- <item name="colorControlNormal">@color/yellow</item> -->
-    <!-- <item name="colorControlActivated">@color/white</item> -->
-  </style>
+		-->
+		<!-- <item name="colorControlNormal">@color/yellow</item> -->
+		<!-- <item name="colorControlActivated">@color/white</item> -->
+	</style>
 
-  <!-- Application theme. -->
-  <style name="AppTheme" parent="@style/Theme.AppTheme">
-    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+	<!-- Application theme. -->
+	<style name="AppTheme" parent="@style/Theme.AppTheme">
+		<!-- All customizations that are NOT specific to a particular API-level can go here. -->
 
-  </style>
+	</style>
+
+	<style name="DialogTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="android:textColor">@color/primary_dark</item>
+		<item name="colorAccent">@color/primary</item>
+		<item name="alertDialogCenterButtons">true</item>
+	</style>
 
 </resources>
