@@ -9,23 +9,35 @@
 	</style>
 
 	<style name="SearchViewStyle" parent="@style/Widget.AppCompat.Light.SearchView">
+		<item name="colorPrimary">@color/red</item>
+		<item name="colorPrimaryDark">@color/blue</item>
 		<item name="suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
+	</style>
+
+	<style name="DropDownItemStyle" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
+		<item name="android:background">@color/white</item>
+	</style>
+
+	<style name="SearchDropDownTheme" parent="@style/RtlOverlay.Widget.AppCompat.Search.DropDown">
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/white</item>
+		<item name="colorAccent">@color/primary</item>
+		<item name="android:background">@color/white</item>
+		<item name="android:textColorPrimary">@color/primary_dark</item>
 	</style>
 
 	<style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 		<item name="android:background">?attr/colorPrimary</item>
-
-		<!--
-     		<item name="android:textColorPrimary">@color/white</item>
-		<item name="android:textColorSecondary">@color/white</item>
-		<item name="android:background">?attr/colorPrimary</item>
-		<item name="colorPrimary">@color/primary</item>
-		<item name="colorPrimaryDark">@color/primary_dark</item>
-		<item name="colorAccent">@color/primary</item>
+		<item name="android:dropDownItemStyle">@style/DropDownItemStyle</item>
 		<item name="searchViewStyle">@style/SearchViewStyle</item>
-		-->
+	</style>
 
-		<item name="searchViewStyle">@style/SearchViewStyle</item>
+	<style name="SearchResultTitle" parent="@style/TextAppearance.AppCompat.SearchResult.Title">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+	</style>
+
+	<style name="SearchResultSubtitle" parent="@style/TextAppearance.AppCompat.SearchResult.Subtitle">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
 	</style>
 
 	<style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
@@ -35,7 +47,8 @@
 
 		<!-- colorPrimaryDark is used for the status bar -->
 		<item name="colorPrimaryDark">@color/primary_dark</item>
-		<item name="colorAccent">@color/primary</item>
+		<item name="textAppearanceSearchResultTitle">@style/SearchResultTitle</item>
+		<item name="textAppearanceSearchResultSubtitle">@style/SearchResultSubtitle</item>
 	</style>
 
 	<!-- Application theme. -->
