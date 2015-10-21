@@ -1,33 +1,50 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<style name="SearchResultTitle" parent="@style/TextAppearance.AppCompat.SearchResult.Title">
-		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+	<style name="PopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/white</item>
+		<item name="colorAccent">@color/primary</item>
+		<item name="android:background">@color/white</item>
+		<item name="android:textColorPrimary">@color/primary_dark</item>
 	</style>
 
-	<style name="SearchResultSubtitle" parent="@style/TextAppearance.AppCompat.SearchResult.Subtitle">
-		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+	<style name="SearchDropDownStyle" parent="@style/RtlOverlay.Widget.AppCompat.Search.DropDown">
+		<item name="android:background">@color/white</item>
 	</style>
 
-	<style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+	<style name="DropDownItemStyle" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
+		<item name="android:background">@color/white</item>
+	</style>
+
+	<style name="SearchViewStyle" parent="@style/Widget.AppCompat.Light.SearchView">
+		<item name="suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
+	</style>
+
+	<style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+		<item name="android:background">?attr/colorPrimary</item>
+
+		<!--
+     		<item name="android:textColorPrimary">@color/white</item>
+		<item name="android:textColorSecondary">@color/white</item>
+		<item name="android:background">?attr/colorPrimary</item>
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="colorAccent">@color/primary</item>
+		<item name="searchViewStyle">@style/SearchViewStyle</item>
+		-->
+
+		<item name="searchViewStyle">@style/SearchViewStyle</item>
+	</style>
+
+	<style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
 
 		<!-- colorPrimary is used for the default action bar background -->
 		<item name="colorPrimary">@color/primary</item>
 
 		<!-- colorPrimaryDark is used for the status bar -->
 		<item name="colorPrimaryDark">@color/primary_dark</item>
-		<item name="textAppearanceSearchResultTitle">@style/SearchResultTitle</item>
-		<item name="textAppearanceSearchResultSubtitle">@style/SearchResultSubtitle</item>
-		<!--
-         colorAccent is used as the default value for colorControlActivated,
-         which is used to tint widgets
-		-->
-		<!-- <item name="colorAccent">@color/yellow</item> -->
-		<!--
-         You can also set colorControlNormal, colorControlActivated
-         colorControlHighlight, and colorSwitchThumbNormal.
-		-->
-		<!-- <item name="colorControlNormal">@color/yellow</item> -->
-		<!-- <item name="colorControlActivated">@color/white</item> -->
+		<item name="colorAccent">@color/primary</item>
+		<item name="android:dropDownItemStyle">@style/DropDownItemStyle</item>
 	</style>
 
 	<!-- Application theme. -->
@@ -39,6 +56,7 @@
 	<style name="DialogTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
 		<item name="android:textColor">@color/primary_dark</item>
 		<item name="colorAccent">@color/primary</item>
+		<item name="android:background">?attr/background</item>
 		<item name="alertDialogCenterButtons">true</item>
 	</style>
 
