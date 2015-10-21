@@ -8,14 +8,6 @@
 		<item name="android:textColorPrimary">@color/primary_dark</item>
 	</style>
 
-	<style name="SearchDropDownStyle" parent="@style/RtlOverlay.Widget.AppCompat.Search.DropDown">
-		<item name="android:background">@color/white</item>
-	</style>
-
-	<style name="DropDownItemStyle" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
-		<item name="android:background">@color/white</item>
-	</style>
-
 	<style name="SearchViewStyle" parent="@style/Widget.AppCompat.Light.SearchView">
 		<item name="suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
 	</style>
@@ -44,7 +36,6 @@
 		<!-- colorPrimaryDark is used for the status bar -->
 		<item name="colorPrimaryDark">@color/primary_dark</item>
 		<item name="colorAccent">@color/primary</item>
-		<item name="android:dropDownItemStyle">@style/DropDownItemStyle</item>
 	</style>
 
 	<!-- Application theme. -->
