@@ -9,25 +9,25 @@
 	</style>
 
 	<style name="SearchViewStyle" parent="@style/Widget.AppCompat.Light.SearchView">
-		<item name="colorPrimary">@color/red</item>
-		<item name="colorPrimaryDark">@color/blue</item>
 		<item name="suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
 	</style>
 
 	<style name="DropDownItemStyle" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
-		<item name="android:background">@color/white</item>
+		<item name="android:background">@drawable/dropdown_item_background</item>
 	</style>
 
 	<style name="SearchDropDownTheme" parent="@style/RtlOverlay.Widget.AppCompat.Search.DropDown">
 		<item name="colorPrimary">@color/primary</item>
 		<item name="colorPrimaryDark">@color/white</item>
-		<item name="colorAccent">@color/primary</item>
-		<item name="android:background">@color/white</item>
-		<item name="android:textColorPrimary">@color/primary_dark</item>
+		<!-- <item name="colorAccent">@color/primary</item> -->
+		<!-- <item name="android:textColorPrimary">@color/primary_dark</item> -->
+		<!-- <item name="android:background">@color/white</item> -->
 	</style>
 
 	<style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-		<item name="android:background">?attr/colorPrimary</item>
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="android:background">@color/primary</item>
 		<item name="android:dropDownItemStyle">@style/DropDownItemStyle</item>
 		<item name="searchViewStyle">@style/SearchViewStyle</item>
 	</style>

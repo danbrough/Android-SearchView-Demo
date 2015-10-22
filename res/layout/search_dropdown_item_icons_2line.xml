@@ -18,10 +18,9 @@
 -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
+	style="@style/SearchDropDownTheme"
 	android:layout_width="match_parent"
-	android:layout_height="58dip"
-	app:theme="@style/SearchDropDownTheme" >
+	android:layout_height="58dip" >
 
 	<!--
          Icons come first in the layout, since their placement doesn't depend on
