@@ -28,7 +28,7 @@
          the placement of the text views.
   -->
 
-  <android.support.v7.internal.widget.TintImageView
+  <ImageView
     android:id="@android:id/icon1"
     style="@style/RtlOverlay.Widget.AppCompat.Search.DropDown.Icon1"
     android:layout_width="@dimen/abc_dropdownitem_icon_width"
@@ -38,7 +38,7 @@
     android:scaleType="centerInside"
     android:visibility="invisible" />
 
-  <android.support.v7.internal.widget.TintImageView
+  <ImageView
     android:id="@+id/edit_query"
     style="@style/RtlOverlay.Widget.AppCompat.Search.DropDown.Query"
     android:layout_width="48dip"
@@ -49,16 +49,16 @@
     android:scaleType="centerInside"
     android:visibility="gone" />
 
-  <android.support.v7.internal.widget.TintImageView
-    android:id="@id/android:icon2"
-    style="@style/RtlOverlay.Widget.AppCompat.Search.DropDown.Icon2"
-    android:layout_width="48dip"
-    android:layout_height="48dip"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignWithParentIfMissing="true"
-    android:scaleType="centerInside"
-    android:visibility="gone" />
+  <ImageView
+  	android:id="@id/android:icon2"
+  	style="@style/RtlOverlay.Widget.AppCompat.Search.DropDown.Icon2"
+  	android:layout_width="48dip"
+  	android:layout_height="48dip"
+  	android:layout_alignParentBottom="true"
+  	android:layout_alignParentTop="true"
+  	android:layout_alignWithParentIfMissing="true"
+  	android:scaleType="centerInside"
+  	android:visibility="gone" />
 
   <!--
          The subtitle comes before the title, since the height of the title depends on whether the
