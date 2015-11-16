@@ -18,9 +18,10 @@
 -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	style="@style/RtlOverlay.Widget.AppCompat.Search.DropDown"
+	style="@style/SearchDropDownTheme"
 	android:layout_width="match_parent"
-	android:layout_height="58dip" >
+	android:layout_height="58dip"
+	android:background="@drawable/dropdown_item_background" >
 
 	<!--
          Icons come first in the layout, since their placement doesn't depend on
@@ -34,6 +35,7 @@
 		android:layout_height="48dip"
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentTop="true"
+		android:background="@android:color/transparent"
 		android:scaleType="centerInside"
 		android:visibility="invisible" />
 

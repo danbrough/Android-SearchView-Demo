@@ -1,34 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!--
-  <item name="menu_test" type="id"/>
-  <item name="menu_exit" type="id"/>
-  <item name="menu_close" type="id"/>
-  <item name="menu_delete" type="id"/>
-  <item name="menu_edit" type="id"/>
-  <item name="menu_create_host" type="id"/>
-  <item name="menu_edit_host" type="id"/>
-  <item name="menu_delete_host" type="id"/>
-  <item name="menu_create_session" type="id"/>
-  <item name="menu_delete_session" type="id"/>
-  <item name="menu_edit_session" type="id"/>
-  <item name="menu_create_identity" type="id"/>
-  <item name="menu_delete_identity" type="id"/>
-  <item name="menu_edit_identity" type="id"/>
-  <item name="menu_settings" type="id"/>
-  <item name="menu_commands" type="id"/>
-  <item name="msg_poll" type="id"/>
-  <item name="msg_quit" type="id"/>
-  <item name="msg_command" type="id"/>
-  <item name="msg_start" type="id"/>
-  <item name="msg_test" type="id"/>
-  <item name="msg_status" type="id"/>
-  <item name="msg_info" type="id"/>
-	-->
 	<item name="msg_timeout" type="id"/>
 	<item name="menu_exit" type="id"/>
 	<item name="menu_about" type="id"/>
-	<item name="abc_search_dropdown_item_icons_2line" type="layout">@layout/search_dropdown_item_icons_2line</item>
 
 </resources>
