@@ -1,0 +1,32 @@
+#!/bin/bash
+cd `dirname $0` && cd ..
+
+MANIFEST="AndroidManifest.xml"
+
+
+if [ -n "$1" ]; then
+  version="$1"
+  sed -e 's:^version=.*$:version='$version':' -i build.properties
+else
+  eval $(cat build.properties  |  grep version)
+  if [ -z "$version" ]; then
+    version=1
+    sed -e 's:^version=.*$:version='$version':' -i build.properties 
+  fi
+fi
+
+VERSION_CODE=$version
+VERSION_NAME=$(printf 'v%d.%02d' 1 $VERSION_CODE)
+
+echo VERSION_CODE:$VERSION_CODE VERSION_NAME:$VERSION_NAME
+
+sed -i -e "/versionCode /s/versionCode.*/versionCode $VERSION_CODE/"  \
+  -e "/versionName /s/versionName.*/versionName '$VERSION_NAME'/" \
+  build.gradle
+  
+sed -i -e "s:versionCode=\".*\":versionCode=\"$VERSION_CODE\":" \
+  -e "s:versionName=\".*\":versionName=\"$VERSION_NAME\":" \
+  $MANIFEST
+  
+sed -i res/values/constants.xml   -e "/versionName/s/>.*</>$VERSION_NAME</"
+  

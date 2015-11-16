@@ -1,0 +1,14 @@
+#!/bin/bash
+
+KEYFILE="keystore"
+KEY_ALIAS="demo_searchview"
+STORE_PASSWORD="$1"
+KEY_PASSWORD="$1"
+cd `dirname $0` && cd ..
+
+./gradlew assembleRelease -Pandroid.injected.signing.store.file=$KEYFILE \
+  -Pandroid.injected.signing.store.password=$STORE_PASSWORD \
+  -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+  -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+
+cp build/outputs/apk/demo_searchview-release.apk  .
