@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.0"
+
+  defaultConfig {
+    minSdkVersion 14
+    targetSdkVersion 25
+    versionCode 4
+    versionName "v1.04"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+
+
+  lintOptions {
+    abortOnError false
+  }
+
+/*  sourceSets {
+    main {
+      assets.srcDirs = ['../lib/src/test/resources']
+    }
+  }*/
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+
+  }
+}
+
+dependencies {
+  testCompile 'junit:junit:4.12'
+  androidTestCompile 'junit:junit:4.12'
+  compile 'com.android.support:design:25.0.0'
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+
+  //testCompile 'org.mockito:mockito-core:2.1.0-beta.120'
+  //androidTestCompile 'org.mockito:mockito-core:2.1.0-beta.120'
+
+  //compile 'org.pegdown:pegdown:1.6.0'
+}
+
+task run(type: Task, dependsOn: 'installDebug') {
+  doLast {
+    println "Running application ..."
+    "adb shell am start -c android.intent.category.LAUNCHER -n danbroid.searchview/danbroid.searchview.MainActivity".execute()
+  }
+}
+
+
+defaultTasks 'run'
