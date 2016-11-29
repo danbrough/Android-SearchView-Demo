@@ -1,13 +1,10 @@
 package danbroid.searchview;
 
-import java.lang.reflect.Field;
-
-import org.slf4j.LoggerFactory;
-import org.slf4j.impl.AndroidLoggerFactory;
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
 import android.support.v4.view.MenuItemCompat;
@@ -26,6 +23,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.impl.AndroidLoggerFactory;
+
+import java.lang.reflect.Field;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    suggestions = new SearchRecentSuggestions(this, SuggestionProvider.AUTHORITY, SuggestionProvider.MODE);
+    suggestions = new SearchRecentSuggestions(this, SuggestionProvider.AUTHORITY,
+        SuggestionProvider.MODE);
 
     // Associate searchable configuration with the SearchView
     SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -143,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
     String query = String.valueOf(extras.get(SearchManager.QUERY));
 
     log.debug("query: {} user_query: {}", query, userQuery);
-    Toast.makeText(this, "query: " + query + " user_query: " + userQuery, Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, "query: " + query + " user_query: " + userQuery, Toast.LENGTH_SHORT)
+        .show();
   }
 
   protected void showSearch(boolean visible) {
@@ -168,9 +172,9 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
-    case R.id.menu_about:
-      showAboutDialog();
-      return true;
+      case R.id.menu_about:
+        showAboutDialog();
+        return true;
     }
     return super.onOptionsItemSelected(item);
   }
@@ -181,9 +185,20 @@ public class MainActivity extends AppCompatActivity {
     AlertDialog.Builder builder = new AlertDialog.Builder(getSupportActionBar().getThemedContext(),
         R.style.DialogTheme);
     builder.setPositiveButton(android.R.string.ok, null);
-    builder.setTitle(getString(R.string.app_name) + " version: " + getString(R.string.versionName));
+    String title = getString(R.string.app_name) + " version: ";
+
+
+    try {
+      PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+      title += " " + packageInfo.versionName;
+    } catch (PackageManager.NameNotFoundException e) {
+      //Handle exception
+    }
+    builder.setTitle(title);
+
     builder.setIcon(R.drawable.ic_launcher);
-    SpannableString aboutMessage = new SpannableString(Html.fromHtml(getString(R.string.msg_about)));
+    SpannableString aboutMessage = new SpannableString(Html.fromHtml(getString(R.string
+        .msg_about)));
     builder.setMessage(aboutMessage);
 
     TextView messageText = (TextView) builder.show().findViewById(android.R.id.message);

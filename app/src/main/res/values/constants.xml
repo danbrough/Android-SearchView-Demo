@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-	<string name="versionName">v1.03</string>
-
-	<integer name="dbVersion">1</integer>
-
-</resources>
