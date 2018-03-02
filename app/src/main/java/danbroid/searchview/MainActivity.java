@@ -7,7 +7,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -18,25 +17,17 @@ import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.slf4j.LoggerFactory;
-import org.slf4j.impl.AndroidLoggerFactory;
 
 import java.lang.reflect.Field;
 
 public class MainActivity extends AppCompatActivity {
 
-  private static final org.slf4j.Logger log;
-
-  static {
-    AndroidLoggerFactory.configureDefaultLogger(MainActivity.class.getPackage());
-    log = LoggerFactory.getLogger(MainActivity.class);
-  }
+  private static final org.slf4j.Logger log = LoggerFactory.getLogger(MainActivity.class);
 
   private MenuItem searchItem;
   private SearchRecentSuggestions suggestions;
@@ -49,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     setContentView(R.layout.layout);
 
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
     suggestions = new SearchRecentSuggestions(this, SuggestionProvider.AUTHORITY,
@@ -65,17 +56,14 @@ public class MainActivity extends AppCompatActivity {
     searchView.setIconifiedByDefault(true);
     searchView.setMaxWidth(1000);
 
-    SearchView.SearchAutoComplete searchAutoComplete = (SearchView.SearchAutoComplete) searchView
+    SearchView.SearchAutoComplete searchAutoComplete = searchView
         .findViewById(android.support.v7.appcompat.R.id.search_src_text);
 
     // Collapse the search menu when the user hits the back key
-    searchAutoComplete.setOnFocusChangeListener(new OnFocusChangeListener() {
-      @Override
-      public void onFocusChange(View v, boolean hasFocus) {
-        log.trace("onFocusChange(): " + hasFocus);
-        if (!hasFocus)
-          showSearch(false);
-      }
+    searchAutoComplete.setOnFocusChangeListener((v, hasFocus) -> {
+      log.trace("onFocusChange(): " + hasFocus);
+      if (!hasFocus)
+        showSearch(false);
     });
 
     try {
@@ -108,14 +96,11 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    CheckBox submitEnabled = (CheckBox) findViewById(R.id.submit_enabled_checkbox);
+    CheckBox submitEnabled = findViewById(R.id.submit_enabled_checkbox);
     submitEnabled.setChecked(searchView.isSubmitButtonEnabled());
-    submitEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-      @Override
-      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        searchView.setSubmitButtonEnabled(isChecked);
-      }
-    });
+    submitEnabled.setOnCheckedChangeListener(
+        (buttonView, isChecked) -> searchView.setSubmitButtonEnabled(isChecked)
+    );
 
   }
 
@@ -126,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
 
     searchItem.setIcon(R.drawable.ic_search_white_36dp);
 
-    MenuItemCompat.setActionView(searchItem, searchView);
+    searchItem.setActionView(searchView);
 
-    MenuItemCompat.setShowAsAction(searchItem,
-        MenuItemCompat.SHOW_AS_ACTION_ALWAYS | MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+
+    searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 
     menu.add(0, R.id.menu_about, 0, R.string.lbl_about);
 
@@ -152,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
 
   protected void showSearch(boolean visible) {
     if (visible)
-      MenuItemCompat.expandActionView(searchItem);
+      searchItem.expandActionView();
     else
-      MenuItemCompat.collapseActionView(searchItem);
+      searchItem.collapseActionView();
   }
 
   /**
@@ -201,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         .msg_about)));
     builder.setMessage(aboutMessage);
 
-    TextView messageText = (TextView) builder.show().findViewById(android.R.id.message);
+    TextView messageText = builder.show().findViewById(android.R.id.message);
     messageText.setMovementMethod(LinkMovementMethod.getInstance());
   }
 }

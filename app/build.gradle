@@ -1,21 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.1"
+  compileSdkVersion 27
+  buildToolsVersion "27.0.3"
 
   defaultConfig {
     minSdkVersion 14
-    targetSdkVersion 25
-    versionCode 5
-    versionName "v1.05"
+    targetSdkVersion 27
+    versionCode 6
+    versionName "v1.06"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
 
 
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
 
 
@@ -34,23 +34,23 @@ android {
 }
 
 dependencies {
-  testCompile 'junit:junit:4.12'
-  androidTestCompile 'junit:junit:4.12'
-  compile 'com.android.support:design:25.0.1'
-  compile fileTree(include: ['*.jar'], dir: 'libs')
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation'junit:junit:4.12'
+  implementation 'com.android.support:design:27.1.0'
+  implementation 'com.github.danbrough.util:slf4j:1.0.6'
 
-  //testCompile 'org.mockito:mockito-core:2.1.0-beta.120'
-  //androidTestCompile 'org.mockito:mockito-core:2.1.0-beta.120'
-
-  //compile 'org.pegdown:pegdown:1.6.0'
 }
 
-task run(type: Task, dependsOn: 'installDebug') {
-  doLast {
-    println "Running application ..."
-    "adb shell am start -c android.intent.category.LAUNCHER -n danbroid.searchview/danbroid.searchview.MainActivity".execute()
+project.afterEvaluate {
+  android.applicationVariants.all { variant ->
+    task "installRun${variant.name.capitalize()}"(type: Exec, dependsOn: "install${variant.name.capitalize()}", group: "run") {
+      commandLine = ["adb", "shell", "monkey", "-p", variant.applicationId + " 1"]
+      doLast {
+        println "Launching ${variant.applicationId}"
+      }
+    }
   }
 }
 
 
-defaultTasks 'run'
+

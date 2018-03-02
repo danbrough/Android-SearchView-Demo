@@ -5,7 +5,7 @@ This is a small demonstration of how I managed to get the Android [SearchView](h
 You can find the [source code here](https://github.com/danbrough/Android-SearchView-Demo) and you can also install it from 
 the [Google Play Store](https://play.google.com/store/apps/details?id=danbroid.searchview)
 
-This is a standalone app supporting android versions 8 -> 23 featuring:
+This is a standalone app supporting android versions 14 -> 27 featuring:
 
  - Proper material theme styling of the search view
  - How to wire up the search view to a ContentProvider
@@ -14,4 +14,4 @@ This is a standalone app supporting android versions 8 -> 23 featuring:
 
 ![enter image description here](https://raw.githubusercontent.com/danbrough/Android-SearchView-Demo/master/media/screenshot1.jpg)
 ![enter image description here](https://raw.githubusercontent.com/danbrough/Android-SearchView-Demo/master/media/screenshot2.jpg)
-> Written with [StackEdit](https://stackedit.io/).
+
