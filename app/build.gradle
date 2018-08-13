@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion 27
-  buildToolsVersion "27.0.3"
+  compileSdkVersion 28
 
   defaultConfig {
     minSdkVersion 14
-    targetSdkVersion 27
-    versionCode 6
-    versionName "v1.06"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    targetSdkVersion 28
+    versionCode 7
+    versionName "v1.07"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
 
@@ -35,9 +36,10 @@ android {
 
 dependencies {
   testImplementation 'junit:junit:4.12'
-  androidTestImplementation'junit:junit:4.12'
-  implementation 'com.android.support:design:27.1.0'
-  implementation 'com.github.danbrough.util:slf4j:1.0.6'
+  androidTestImplementation 'junit:junit:4.12'
+  implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
+  implementation 'com.github.danbrough.util:slf4j:1.0.7'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
 }
 
@@ -50,6 +52,9 @@ project.afterEvaluate {
       }
     }
   }
+}
+repositories {
+  mavenCentral()
 }
 
 
