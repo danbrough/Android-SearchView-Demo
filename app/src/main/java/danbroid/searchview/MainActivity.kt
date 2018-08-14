@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     super.onNewIntent(intent)
 
     log.info("onNewIntent() :{}", intent)
-    searchViewSupport.showSearch = false
+    invalidateOptionsMenu()
 
     intent.extras?.let {
       /**
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
    */
   override fun onSearchRequested(): Boolean {
     log.trace("onSearchRequested();")
-    searchViewSupport.showSearch = false
+
 
     // dont show the built-in search dialog
     return false

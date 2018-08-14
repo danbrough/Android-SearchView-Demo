@@ -26,20 +26,11 @@ class SearchViewSupport(val activity: AppCompatActivity) {
   private lateinit var searchItem: MenuItem
 
 
-  var showSearch: Boolean
-    get() = searchItem.isActionViewExpanded
-    set(value):Unit {
-      if (value)
-        searchItem.expandActionView()
-      else
-        searchItem.collapseActionView()
-    }
-
 
   fun createSearchView(menu: Menu) {
 
     searchItem = menu.add(android.R.string.search_go)
-    searchItem.setIcon(R.drawable.ic_search_white_36dp)
+    searchItem.setIcon(R.drawable.ic_search)
     searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS or MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW)
 
     searchView = SearchView(activity.supportActionBar!!.themedContext).apply {
@@ -58,8 +49,9 @@ class SearchViewSupport(val activity: AppCompatActivity) {
     // Collapse the search menu when the user hits the back key
     searchAutoComplete.setOnFocusChangeListener { v, hasFocus ->
       log.trace("onFocusChange(): $hasFocus")
-      if (!hasFocus)
-        showSearch = false
+      if (!hasFocus){
+        log.debug("lost focus .. closing search view") //TODO
+      }
     }
 
     try {
