@@ -88,18 +88,20 @@ abstract class BaseActivity : AppCompatActivity() {
   override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
 
+    val extras = intent.extras ?: return
+
     StringBuilder("onNewIntent():\n").apply {
-      for (key in intent.extras.keySet()) {
-        append("${key} => ${intent.extras[key]}\n")
+      for (key in extras.keySet()) {
+        append("${key} => ${extras[key]}\n")
       }
     }.toString().also {
       log.debug(it)
       Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
     }
 
-    if (intent.extras.containsKey(SearchManager.USER_QUERY)) {
+    if (extras.containsKey(SearchManager.USER_QUERY)) {
       log.debug("saving user query to recent suggestions")
-      suggestions.saveRecentQuery(intent.extras[SearchManager.USER_QUERY].toString(), "Saved at ${Date()}")
+      suggestions.saveRecentQuery(extras[SearchManager.USER_QUERY]!!.toString(), "Saved at ${Date()}")
     }
 
     closeSearchView()

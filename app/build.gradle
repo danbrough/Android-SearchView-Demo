@@ -38,7 +38,11 @@ project.afterEvaluate {
 dependencies {
   implementation "org.slf4j:slf4j-api:1.7.25"
 
+  //for some colored log output. see the app/src/debug/resources/slf4j.properties
   debugRuntimeOnly 'com.github.danbrough.util:slf4j:1.0.7'
+
+  //or you can use the standard
+  //implementation "org.slf4j:slf4j-android:1.7.25"
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
   implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
