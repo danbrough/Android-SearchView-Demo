@@ -14,7 +14,7 @@ This is a standalone app supporting android versions 14 -> 28 featuring:
  
 
 ![enter image description here](https://raw.githubusercontent.com/danbrough/Android-SearchView-Demo/master/docs/demo1.png)
-![enter image description here](https://raw.githubusercontent.com/danbrough/Android-SearchView-Demo/master/docs/demo2.jpg)
+![enter image description here](https://raw.githubusercontent.com/danbrough/Android-SearchView-Demo/master/docs/demo2.png)
 
 
 
