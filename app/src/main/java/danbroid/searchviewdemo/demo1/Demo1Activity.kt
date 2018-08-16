@@ -63,7 +63,6 @@ class Demo1Activity : BaseActivity() {
         closeSearchView()
 
 
-
         //return true to cancel the default behaviour which will submit an Intent.ACTION_SEARCH
         //at the activity
         return true
@@ -93,6 +92,14 @@ class Demo1Activity : BaseActivity() {
             return false
           }
         })
+
+    //hack to close the search menu when the back button is pressed
+    searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
+      if (!hasFocus) {
+        log.error("invalidating options menu")
+        invalidateOptionsMenu()
+      }
+    }
   }
 
 }

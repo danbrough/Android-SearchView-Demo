@@ -57,6 +57,14 @@ class Demo2Activity : BaseActivity() {
       }
     })
 
+    //hack to close the search menu when the back button is pressed
+    searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
+      if (!hasFocus) {
+        log.error("invalidating options menu")
+        invalidateOptionsMenu()
+      }
+    }
+
     menuItem.actionView = searchView
   }
 
