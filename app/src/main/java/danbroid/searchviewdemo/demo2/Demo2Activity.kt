@@ -1,6 +1,7 @@
 package danbroid.searchviewdemo.demo2
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -40,7 +41,19 @@ class Demo2Activity : BaseActivity() {
 
   override fun configureSearchMenu(menuItem: MenuItem) {
 
-    val searchView = SearchView(themedContext).apply {
+    val searchView = object: SearchView(themedContext){
+
+      override fun dispatchKeyEventPreIme(event: KeyEvent): Boolean {
+        if (event.keyCode == KeyEvent.KEYCODE_BACK &&
+            event.action == KeyEvent.ACTION_UP){
+          log.trace("triggering action view collapse..")
+          onActionViewCollapsed()
+          clearFocus()
+        }
+        return super.dispatchKeyEventPreIme(event)
+      }
+
+    }.apply {
       setIconifiedByDefault(true)
       setSearchableInfo(searchManager.getSearchableInfo(componentName))
     }
@@ -56,14 +69,6 @@ class Demo2Activity : BaseActivity() {
         return false
       }
     })
-
-    //hack to close the search menu when the back button is pressed
-    searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
-      if (!hasFocus) {
-        log.error("invalidating options menu")
-        invalidateOptionsMenu()
-      }
-    }
 
     menuItem.actionView = searchView
   }

@@ -8,10 +8,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.provider.BaseColumns
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -37,7 +34,20 @@ class Demo1Activity : BaseActivity() {
 
   override fun configureSearchMenu(menuItem: MenuItem) {
 
-    val searchView = SearchView(this).apply {
+
+    val searchView = object : SearchView(this) {
+
+      override fun dispatchKeyEventPreIme(event: KeyEvent): Boolean {
+        if (event.keyCode == KeyEvent.KEYCODE_BACK &&
+            event.action == KeyEvent.ACTION_UP) {
+          log.trace("triggering action view collapse..")
+          onActionViewCollapsed()
+          clearFocus()
+        }
+        return super.dispatchKeyEventPreIme(event)
+      }
+
+    }.apply {
       setIconifiedByDefault(true)
     }
 
@@ -93,13 +103,6 @@ class Demo1Activity : BaseActivity() {
           }
         })
 
-    //hack to close the search menu when the back button is pressed
-    searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
-      if (!hasFocus) {
-        log.error("invalidating options menu")
-        invalidateOptionsMenu()
-      }
-    }
   }
 
 }

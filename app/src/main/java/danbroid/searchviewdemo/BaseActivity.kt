@@ -97,27 +97,22 @@ abstract class BaseActivity : AppCompatActivity() {
       Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
     }
 
-    if (intent.extras.containsKey(SearchManager.USER_QUERY)){
+    if (intent.extras.containsKey(SearchManager.USER_QUERY)) {
       log.debug("saving user query to recent suggestions")
-      suggestions.saveRecentQuery(intent.extras[SearchManager.USER_QUERY].toString(),"Saved at ${Date()}")
+      suggestions.saveRecentQuery(intent.extras[SearchManager.USER_QUERY].toString(), "Saved at ${Date()}")
     }
 
     closeSearchView()
   }
 
-  /**
-   * Collapsing the action view of the search item leaves the search icon highlighted.
-   * This works but is heavy handed.
-   * Let me know if there is a better way
-   */
-  protected fun closeSearchView() =
-      menu?.findItem(R.id.action_search)?.let {
-        if (it.isActionViewExpanded) {
-          log.debug("closing search view ..")
-          invalidateOptionsMenu()
-        }
+  protected fun closeSearchView() {
+    menu?.findItem(R.id.action_search)?.let {
+      if (it.isActionViewExpanded) {
+        it.collapseActionView()
+        it.actionView.clearFocus()
       }
-
+    }
+  }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
     // Inflate the menu; this adds items to the action bar if it is present.

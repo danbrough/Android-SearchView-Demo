@@ -11,6 +11,8 @@ This is a standalone app supporting android versions 14 -> 28 featuring:
  - Proper material theme styling of the search view
  - How to wire up the search view to a ContentProvider
  - How to use the [SearchRecentSuggestionsProvider](http://developer.android.com/reference/android/content/SearchRecentSuggestionsProvider.html)
+ - How to programmatically close the SearchView when the back button is pressed
+ - How to programmatically close the SearchView without weird highlighting of the actionBar
  
 
 ![enter image description here](https://raw.githubusercontent.com/danbrough/Android-SearchView-Demo/master/docs/demo1.png)
