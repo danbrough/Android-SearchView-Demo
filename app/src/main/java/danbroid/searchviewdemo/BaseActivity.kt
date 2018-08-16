@@ -32,8 +32,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
   protected val suggestions: SearchRecentSuggestions by lazy {
-    SearchRecentSuggestions(this, CheesesProvider.AUTHORITY,
-        CheesesProvider.MODE)
+    SearchRecentSuggestions(
+        this,
+        CheeseSuggestionsProvider.AUTHORITY,
+        CheeseSuggestionsProvider.MODE
+    )
   }
 
   protected val searchManager: SearchManager by lazy {
@@ -46,6 +49,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     setContentView(R.layout.activity)
     setSupportActionBar(toolbar)
+    supportActionBar!!.setDisplayHomeAsUpEnabled(!isTaskRoot)
   }
 
 
@@ -127,6 +131,10 @@ abstract class BaseActivity : AppCompatActivity() {
     // as you specify a parent activity in AndroidManifest.xml.
     return when (item.itemId) {
       R.id.action_about -> onAbout()
+      android.R.id.home -> {
+        onBackPressed(); true
+      }
+
       else -> super.onOptionsItemSelected(item)
     }
   }

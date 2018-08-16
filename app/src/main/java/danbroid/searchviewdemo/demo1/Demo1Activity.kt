@@ -46,7 +46,6 @@ class Demo1Activity : BaseActivity() {
         0
     )
 
-
     searchView.setOnSuggestionListener(object : SearchView.OnSuggestionListener {
       override fun onSuggestionSelect(position: Int): Boolean {
         return true
@@ -60,12 +59,12 @@ class Demo1Activity : BaseActivity() {
           "TITLE: ${getString(1)} SUBTITLE: ${getString(2)}"
         }
 
+        //Do something with the selected cheese
         Toast.makeText(this@Demo1Activity, info, Toast.LENGTH_SHORT).show()
         closeSearchView()
         return true
       }
     })
-
 
     searchView.setOnQueryTextListener(
         object : SearchView.OnQueryTextListener {

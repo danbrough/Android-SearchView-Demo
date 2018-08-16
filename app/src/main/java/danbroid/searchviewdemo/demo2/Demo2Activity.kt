@@ -15,6 +15,12 @@ class Demo2Activity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+
+    addNote(
+        "This activity uses the CheeseRecentSuggestions provider to provide search suggestions.\n" +
+            "You can add new suggestions to its database using the button below."
+    )
+
     addButton("Add a suggestion") {
 
       val suggestion = cheeseData.randomCheese()

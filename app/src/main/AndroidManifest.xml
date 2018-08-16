@@ -56,8 +56,8 @@
 
 
     <provider
-      android:name="danbroid.searchviewdemo.CheesesProvider"
-      android:authorities="danbroid.searchviewdemo.CheesesProvider"
+      android:name="danbroid.searchviewdemo.CheeseSuggestionsProvider"
+      android:authorities="danbroid.searchviewdemo.CheeseSuggestionsProvider"
       android:exported="false" />
   </application>
 

@@ -55,9 +55,6 @@ class Demo3Activity : BaseActivity() {
     })
 
 
-    //val autoComplete: SearchView.SearchAutoComplete = searchView.findViewById(androidx.appcompat.R.id.search_src_text)
-
-
     menuItem.actionView = searchView
   }
 

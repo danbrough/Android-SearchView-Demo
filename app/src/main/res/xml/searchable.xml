@@ -2,12 +2,12 @@
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
   android:hint="Click here to search"
   android:label="@string/app_name"
-  android:searchSuggestAuthority="danbroid.searchviewdemo.CheesesProvider"
+  android:searchSuggestAuthority="danbroid.searchviewdemo.CheeseSuggestionsProvider"
   android:searchSuggestSelection=" ?"
   android:searchSuggestThreshold="0">
 
 
-  <!--android:searchSuggestAuthority="danbroid.searchview.SuggestionProvider"
+  <!--
   android:searchSuggestSelection=" ?"
   android:searchSuggestThreshold="0"
   android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"-->
