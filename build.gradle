@@ -3,8 +3,8 @@
 buildscript {
   ext.kotlin_version = '1.2.60'
   repositories {
-    jcenter()
     google()
+    jcenter()
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.3.0-alpha05'
@@ -15,17 +15,15 @@ buildscript {
   }
 }
 
-
 allprojects {
   repositories {
     google()
     jcenter()
     maven { url 'https://jitpack.io' }
+
   }
 }
 
 task clean(type: Delete) {
   delete rootProject.buildDir
 }
-
-defaultTasks ':app:installRunDebug'

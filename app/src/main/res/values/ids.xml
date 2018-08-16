@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-	<item name="msg_timeout" type="id"/>
-	<item name="menu_exit" type="id"/>
-	<item name="menu_about" type="id"/>
-
-</resources>

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
-  android:hint="@string/search_hint"
+  android:hint="Click here to search"
   android:label="@string/app_name"
-  android:searchSuggestAuthority="danbroid.searchview.SuggestionProvider"
+  android:searchSuggestAuthority="danbroid.searchviewdemo.CheesesProvider"
+  android:searchSuggestSelection=" ?"
+  android:searchSuggestThreshold="0">
+
+
+  <!--android:searchSuggestAuthority="danbroid.searchview.SuggestionProvider"
   android:searchSuggestSelection=" ?"
   android:searchSuggestThreshold="0"
-  android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" />
+  android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"-->
+</searchable>

@@ -1,69 +1,84 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
-  <style name="PopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
-    <item name="colorPrimary">@color/primary</item>
-    <item name="colorPrimaryDark">@color/white</item>
-    <item name="colorAccent">@color/primary</item>
-    <item name="android:background">@color/white</item>
-    <item name="android:textColorPrimary">@color/primary_dark</item>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
   </style>
 
-  <style name="SearchViewStyle" parent="@style/Widget.AppCompat.Light.SearchView">
-    <item name="suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
+
+  <style name="AppTheme.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
   </style>
 
-  <style name="DropDownItemStyle" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
-    <item name="android:background">@drawable/dropdown_item_background</item>
+  <style name="autoCompleteTextViewStyle_demo2" parent="Widget.AppCompat.AutoCompleteTextView">
+    <!-- Makes the autocomplete dropDown the same colour as the dark toolbar -->
+    <item name="android:popupBackground">@color/colorPrimary</item>
   </style>
 
-  <style name="SearchDropDownTheme" parent="@style/RtlOverlay.Widget.AppCompat.Search.DropDown">
-    <item name="colorPrimary">@color/primary</item>
-    <item name="colorPrimaryDark">@color/white</item>
-    <!-- <item name="colorAccent">@color/primary</item> -->
-    <!-- <item name="android:textColorPrimary">@color/primary_dark</item> -->
+  <style name="AppTheme.NoActionBar.Demo2" parent="AppTheme.NoActionBar">
+    <item name="autoCompleteTextViewStyle">@style/autoCompleteTextViewStyle_demo2</item>
   </style>
 
-  <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-    <item name="colorPrimary">@color/primary</item>
-    <item name="colorPrimaryDark">@color/primary_dark</item>
-    <item name="android:background">@color/primary</item>
-    <item name="android:dropDownItemStyle">@style/DropDownItemStyle</item>
-    <item name="searchViewStyle">@style/SearchViewStyle</item>
+
+  <style name="SearchViewStyle_demo3" parent="@style/Widget.AppCompat.Light.SearchView">
+
+    <!--
+
+       <item name="layout">@layout/abc_search_view</item>
+        <item name="queryBackground">@drawable/abc_textfield_search_material</item>
+        <item name="submitBackground">@drawable/abc_textfield_search_material</item>
+        <item name="closeIcon">@drawable/abc_ic_clear_material</item>
+        <item name="searchIcon">@drawable/abc_ic_search_api_material</item>
+        <item name="searchHintIcon">@drawable/abc_ic_search_api_material</item>
+        <item name="goIcon">@drawable/abc_ic_go_search_api_material</item>
+        <item name="voiceIcon">@drawable/abc_ic_voice_search_api_material</item>
+        <item name="commitIcon">@drawable/abc_ic_commit_search_api_mtrl_alpha</item>
+        <item name="suggestionRowLayout">@layout/abc_search_dropdown_item_icons_2line</item>
+
+    -->
+
+    <item name="queryHint">@string/abc_search_hint</item>
+    <item name="searchHintIcon">@null</item>
   </style>
 
-  <style name="SearchResultTitle" parent="@style/TextAppearance.AppCompat.SearchResult.Title">
-    <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+  <style name="autoCompleteTextViewStyle_demo3" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+    <!-- corrects the black text in the SearchViews autocomplete -->
+    <item name="android:textColor">?android:textColorPrimaryInverse</item>
+    <item name="android:textColorHint">?android:textColorHintInverse</item>
   </style>
 
-  <style name="SearchResultSubtitle" parent="@style/TextAppearance.AppCompat.SearchResult.Subtitle">
-    <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
-    <item name="android:textSize">10sp</item>
+
+  <style name="DropDownItemStyle_demo3" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
+    <item name="android:background">@color/colorPrimary</item>
   </style>
 
-  <style name="Theme.AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
 
-    <!-- colorPrimary is used for the default action bar background -->
-    <item name="colorPrimary">@color/primary</item>
-    <item name="colorAccent">@color/red</item>
-
-    <!-- colorPrimaryDark is used for the status bar -->
-    <item name="colorPrimaryDark">@color/primary_dark</item>
-    <item name="textAppearanceSearchResultTitle">@style/SearchResultTitle</item>
-    <item name="textAppearanceSearchResultSubtitle">@style/SearchResultSubtitle</item>
+  <style name="searchResultTitleTextAppearance" parent="TextAppearance.AppCompat.SearchResult.Title">
+    <item name="android:textColor">?android:textColorPrimary</item>
   </style>
 
-  <!-- Application theme. -->
-  <style name="AppTheme" parent="@style/Theme.AppTheme">
-    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-
+  <style name="searchResultSubTitleTextAppearance" parent="TextAppearance.AppCompat.SearchResult.Subtitle">
+    <item name="android:textColor">?android:textColorSecondary</item>
   </style>
 
-  <style name="DialogTheme" parent="@style/Theme.AppCompat.Light.Dialog">
-    <item name="android:textColor">@color/red</item>
-    <!-- <item name="colorAccent">@color/red</item> -->
-    <item name="colorAccent">@color/red</item>
-    <item name="android:background">?attr/background</item>
-    <item name="alertDialogCenterButtons">true</item>
+
+  <style name="AppTheme.NoActionBar.Demo3" parent="AppTheme.NoActionBar">
+
+    <item name="searchViewStyle">@style/SearchViewStyle_demo3</item>
+    <item name="autoCompleteTextViewStyle">@style/autoCompleteTextViewStyle_demo3</item>
+    <item name="colorControlNormal">?android:textColorPrimaryInverse</item>
+
+    <item name="textAppearanceSearchResultTitle">@style/searchResultTitleTextAppearance</item>
+    <item name="textAppearanceSearchResultSubtitle">@style/searchResultSubTitleTextAppearance</item>
   </style>
+
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"></style>
+
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>
