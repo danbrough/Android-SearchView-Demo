@@ -23,7 +23,7 @@
     <activity
       android:name=".demo1.Demo1Activity"
       android:label="@string/title_demo1"
-      android:theme="@style/AppTheme.NoActionBar" />
+      android:theme="@style/AppTheme.NoActionBar.Demo3" />
 
     <activity
       android:name=".demo2.Demo2Activity"

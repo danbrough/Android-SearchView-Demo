@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity.*
+import java.util.*
 
 private val log by lazy {
   org.slf4j.LoggerFactory.getLogger(BaseActivity::class.java)
@@ -94,6 +95,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }.toString().also {
       log.debug(it)
       Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+    }
+
+    if (intent.extras.containsKey(SearchManager.USER_QUERY)){
+      log.debug("saving user query to recent suggestions")
+      suggestions.saveRecentQuery(intent.extras[SearchManager.USER_QUERY].toString(),"Saved at ${Date()}")
     }
 
     closeSearchView()

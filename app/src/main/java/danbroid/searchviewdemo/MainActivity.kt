@@ -13,16 +13,16 @@ class MainActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    addButton("Custom Suggestion DropDown") {
-      startActivity(Intent(this, Demo1Activity::class.java))
-    }
-
     addButton("Dark Suggestion DropDown") {
       startActivity(Intent(this, Demo2Activity::class.java))
     }
 
     addButton("Light Suggestion DropDown") {
       startActivity(Intent(this, Demo3Activity::class.java))
+    }
+
+    addButton ("Custom Suggestion DropDown") {
+      startActivity(Intent(this, Demo1Activity::class.java))
     }
   }
 
