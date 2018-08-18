@@ -55,6 +55,22 @@
     </activity>
 
 
+    <activity
+      android:name=".demo4.Demo4Activity"
+      android:label="@string/title_demo4"
+      android:launchMode="singleTop"
+      android:theme="@style/AppTheme.NoActionBar">
+      <intent-filter>
+        <action android:name="android.intent.action.SEARCH" />
+      </intent-filter>
+
+      <meta-data
+        android:name="android.app.searchable"
+        android:resource="@xml/searchable" />
+
+    </activity>
+
+
     <provider
       android:name="danbroid.searchviewdemo.CheeseSuggestionsProvider"
       android:authorities="danbroid.searchviewdemo.CheeseSuggestionsProvider"

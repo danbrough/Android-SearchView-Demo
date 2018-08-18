@@ -6,20 +6,13 @@ import android.view.MenuItem
 import danbroid.searchviewdemo.demo1.Demo1Activity
 import danbroid.searchviewdemo.demo2.Demo2Activity
 import danbroid.searchviewdemo.demo3.Demo3Activity
-import org.slf4j.LoggerFactory
+import danbroid.searchviewdemo.demo4.Demo4Activity
 
 
 class MainActivity : BaseActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-
-    val log = LoggerFactory.getLogger("THANG")
-    log.trace("TRACE")
-    log.debug("DEBUG")
-    log.info("INFO")
-    log.warn("WARN")
-    log.error("ERROR")
 
     addButton("Dark Suggestion DropDown") {
       startActivity(Intent(this, Demo2Activity::class.java))
@@ -29,8 +22,12 @@ class MainActivity : BaseActivity() {
       startActivity(Intent(this, Demo3Activity::class.java))
     }
 
-    addButton ("Custom Suggestion DropDown") {
+    addButton("Custom Suggestion DropDown") {
       startActivity(Intent(this, Demo1Activity::class.java))
+    }
+
+    addButton("Demo4") {
+      startActivity(Intent(this, Demo4Activity::class.java))
     }
   }
 
