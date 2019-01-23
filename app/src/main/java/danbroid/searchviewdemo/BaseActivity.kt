@@ -110,8 +110,9 @@ abstract class BaseActivity : AppCompatActivity() {
   protected fun closeSearchView() {
     menu?.findItem(R.id.action_search)?.let {
       if (it.isActionViewExpanded) {
-        it.collapseActionView()
-        it.actionView.clearFocus()
+        /*it.actionView.clearFocus()
+        it.collapseActionView()*/
+        invalidateOptionsMenu()
       }
     }
   }

@@ -7,6 +7,7 @@ import danbroid.searchviewdemo.demo1.Demo1Activity
 import danbroid.searchviewdemo.demo2.Demo2Activity
 import danbroid.searchviewdemo.demo3.Demo3Activity
 import danbroid.searchviewdemo.demo4.Demo4Activity
+import danbroid.searchviewdemo.demo5.Demo5Activity
 
 
 class MainActivity : BaseActivity() {
@@ -26,8 +27,12 @@ class MainActivity : BaseActivity() {
       startActivity(Intent(this, Demo1Activity::class.java))
     }
 
-    addButton("Demo4") {
+    addButton("Search Dialog") {
       startActivity(Intent(this, Demo4Activity::class.java))
+    }
+
+    addButton("Floating Search") {
+      startActivity(Intent(this, Demo5Activity::class.java))
     }
   }
 

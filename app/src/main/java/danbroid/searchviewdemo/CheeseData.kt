@@ -1,10 +1,6 @@
 package danbroid.searchviewdemo
 
-import android.app.SearchManager
 import android.content.Context
-import android.database.Cursor
-import android.database.MatrixCursor
-import android.provider.BaseColumns
 import android.text.TextUtils
 import java.io.BufferedReader
 import java.io.InputStreamReader
