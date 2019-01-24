@@ -11,8 +11,8 @@ android {
     applicationId "danbroid.searchviewdemo"
     minSdkVersion 14
     targetSdkVersion 28
-    versionCode 4
-    versionName "1.04"
+    versionCode 8
+    versionName "v1.08"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
