@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo.demo4
+package danbroid.searchviewdemo.activities
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,11 +6,7 @@ import danbroid.searchviewdemo.BaseActivity
 import danbroid.searchviewdemo.R
 
 
-private val log by lazy {
-  org.slf4j.LoggerFactory.getLogger(Demo4Activity::class.java)
-}
-
-class Demo4Activity : BaseActivity() {
+class SearchDialogActivity : BaseActivity() {
 
   override fun configureSearchMenu(menuItem: MenuItem) {
   }
@@ -24,17 +20,17 @@ class Demo4Activity : BaseActivity() {
         else -> super.onOptionsItemSelected(item)
       }
 
-
   override fun onSearchRequested(): Boolean {
     log.trace("onSearchRequested()")
     return super.onSearchRequested()
   }
-
 
   override fun startSearch(initialQuery: String?, selectInitialQuery: Boolean, appSearchData: Bundle?, globalSearch: Boolean) {
     log.trace("startSearch() initalQuery: $initialQuery selectInitialQuery: $selectInitialQuery appSearchData: $appSearchData globalSearch: $globalSearch")
     super.startSearch(initialQuery, selectInitialQuery, appSearchData, globalSearch)
   }
 
-
 }
+
+private val log =
+    org.slf4j.LoggerFactory.getLogger(SearchDialogActivity::class.java)

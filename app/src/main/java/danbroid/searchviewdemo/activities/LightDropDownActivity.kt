@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo.demo3
+package danbroid.searchviewdemo.activities
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -9,10 +9,10 @@ import danbroid.searchviewdemo.BaseActivity
 
 
 private val log by lazy {
-  org.slf4j.LoggerFactory.getLogger(Demo3Activity::class.java)
+  org.slf4j.LoggerFactory.getLogger(LightDropDownActivity::class.java)
 }
 
-class Demo3Activity : BaseActivity() {
+class LightDropDownActivity : BaseActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class Demo3Activity : BaseActivity() {
 
       suggestions.saveRecentQuery(
           suggestion,
-          "Love this one (demo3)"
+          "(LightDropDownActivity)"
       )
     }
 
@@ -37,17 +37,17 @@ class Demo3Activity : BaseActivity() {
   override fun configureSearchMenu(menuItem: MenuItem) {
 
     //Note that we are using the activity as the context rather than the themedContext
-    val searchView = object: SearchView(this){
+    val searchView = object : SearchView(this) {
 
-      override fun dispatchKeyEventPreIme(event: KeyEvent): Boolean {
+/*      override fun dispatchKeyEventPreIme(event: KeyEvent): Boolean {
         if (event.keyCode == KeyEvent.KEYCODE_BACK &&
-            event.action == KeyEvent.ACTION_UP){
+            event.action == KeyEvent.ACTION_UP) {
           log.trace("triggering action view collapse..")
           onActionViewCollapsed()
           clearFocus()
         }
         return super.dispatchKeyEventPreIme(event)
-      }
+      }*/
 
     }.apply {
       setIconifiedByDefault(true)
@@ -57,7 +57,8 @@ class Demo3Activity : BaseActivity() {
 
 
     searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-      override fun onQueryTextSubmit(query: String?): Boolean {
+      override fun onQueryTextSubmit(query: String): Boolean {
+        log.trace("onQueryTextSubmit() $query")
         return false
       }
 

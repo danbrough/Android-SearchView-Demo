@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo.demo2
+package danbroid.searchviewdemo.activities
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -8,10 +8,10 @@ import androidx.appcompat.widget.SearchView
 import danbroid.searchviewdemo.BaseActivity
 
 private val log by lazy {
-  org.slf4j.LoggerFactory.getLogger(Demo2Activity::class.java)
+  org.slf4j.LoggerFactory.getLogger(DarkDropDownActivity::class.java)
 }
 
-class Demo2Activity : BaseActivity() {
+class DarkDropDownActivity : BaseActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class Demo2Activity : BaseActivity() {
 
       suggestions.saveRecentQuery(
           suggestion,
-          "Love this one (demo2)"
+          "Love this one (DarkDropDownActivity)"
       )
     }
 
@@ -41,11 +41,11 @@ class Demo2Activity : BaseActivity() {
 
   override fun configureSearchMenu(menuItem: MenuItem) {
 
-    val searchView = object: SearchView(themedContext){
+    val searchView = object : SearchView(themedContext) {
 
       override fun dispatchKeyEventPreIme(event: KeyEvent): Boolean {
         if (event.keyCode == KeyEvent.KEYCODE_BACK &&
-            event.action == KeyEvent.ACTION_UP){
+            event.action == KeyEvent.ACTION_UP) {
           log.trace("triggering action view collapse..")
           onActionViewCollapsed()
           clearFocus()

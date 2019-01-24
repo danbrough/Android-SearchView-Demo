@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.provider.SearchRecentSuggestions
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity.*
 import java.util.*
@@ -54,22 +57,22 @@ abstract class BaseActivity : AppCompatActivity() {
   }
 
 
-  fun addButton(title: String, onClick: () -> Unit) {
-    content_container.addView(
-        Button(this).apply {
+  fun addButton(title: CharSequence, onClick: () -> Unit) =
+      content_container.addView(
 
-          text = title
+          Button(this).apply {
+            text = title
 
-          layoutParams = ViewGroup.LayoutParams(
-              ViewGroup.LayoutParams.WRAP_CONTENT,
-              ViewGroup.LayoutParams.WRAP_CONTENT)
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT)
 
-          setOnClickListener {
-            onClick()
+            setOnClickListener {
+              onClick()
+            }
           }
-        }
-    )
-  }
+      )
+
 
   fun addNote(text: String) {
     content_container.addView(
@@ -100,21 +103,30 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     if (extras.containsKey(SearchManager.USER_QUERY)) {
-      log.debug("saving user query to recent suggestions")
-      suggestions.saveRecentQuery(extras[SearchManager.USER_QUERY]!!.toString(), "Saved at ${Date()}")
+      val userQuery = extras[SearchManager.USER_QUERY]!!.toString()
+      if (extras.containsKey(SearchManager.QUERY)) {
+        val query = extras[SearchManager.QUERY]!!.toString()
+        if (query == userQuery) {
+          val msg = "saving user query: $userQuery to recent suggestions"
+          log.debug(msg)
+          Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+          suggestions.saveRecentQuery(userQuery, "Saved at ${Date()}")
+        }
+      }
     }
 
     closeSearchView()
   }
 
   protected fun closeSearchView() {
-    menu?.findItem(R.id.action_search)?.let {
-      if (it.isActionViewExpanded) {
-        /*it.actionView.clearFocus()
-        it.collapseActionView()*/
-        invalidateOptionsMenu()
-      }
-    }
+    log.debug("closeSearchView()")
+    toolbar.collapseActionView()
+    content_container.requestFocus()
+  }
+
+  override fun onBackPressed() {
+    super.onBackPressed()
+    closeSearchView()
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {

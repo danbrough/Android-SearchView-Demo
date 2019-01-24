@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo.demo1
+package danbroid.searchviewdemo.activities
 
 import android.app.SearchManager
 import android.content.Context
@@ -18,16 +18,12 @@ import danbroid.searchviewdemo.BaseActivity
 import danbroid.searchviewdemo.R
 
 
-private val log by lazy {
-  org.slf4j.LoggerFactory.getLogger(Demo1Activity::class.java)
-}
-
-class Demo1Activity : BaseActivity() {
+class CustomSuggestionLayoutActivity : BaseActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     addNote(
-        "Demo1 features a search-view with a custom suggestion layout.\n" +
+        "This has a search-view with a custom suggestion layout.\n" +
             "Type in a couple of characters to initiate a search"
     )
   }
@@ -35,23 +31,12 @@ class Demo1Activity : BaseActivity() {
   override fun configureSearchMenu(menuItem: MenuItem) {
 
 
-    val searchView = object : SearchView(this) {
-
-      override fun dispatchKeyEventPreIme(event: KeyEvent): Boolean {
-        if (event.keyCode == KeyEvent.KEYCODE_BACK &&
-            event.action == KeyEvent.ACTION_UP) {
-          log.trace("triggering action view collapse..")
-          onActionViewCollapsed()
-          clearFocus()
-        }
-        return super.dispatchKeyEventPreIme(event)
-      }
-
-    }.apply {
+    val searchView = SearchView(this).apply {
       setIconifiedByDefault(true)
+    }.also {
+      menuItem.actionView = it
     }
 
-    menuItem.actionView = searchView
 
     searchView.suggestionsAdapter = CustomSuggestionsAdapter(this)
 
@@ -69,7 +54,7 @@ class Demo1Activity : BaseActivity() {
         }
 
         //Do something with the selected cheese
-        Toast.makeText(this@Demo1Activity, info, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@CustomSuggestionLayoutActivity, info, Toast.LENGTH_SHORT).show()
         closeSearchView()
 
 
@@ -106,6 +91,8 @@ class Demo1Activity : BaseActivity() {
   }
 
 }
+
+private val log = org.slf4j.LoggerFactory.getLogger(CustomSuggestionLayoutActivity::class.java)
 
 class SearchTask(val resultsReceiver: (Cursor) -> (Unit)) : AsyncTask<Void, Unit, Cursor>() {
 
