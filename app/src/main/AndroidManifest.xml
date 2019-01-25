@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="danbroid.searchviewdemo">
+  package="danbroid.searchview">
 
   <application
     android:allowBackup="true"
@@ -77,8 +77,8 @@
       android:theme="@style/AppTheme.NoActionBar"></activity>
 
     <provider
-      android:name="danbroid.searchviewdemo.CheeseSuggestionsProvider"
-      android:authorities="danbroid.searchviewdemo.CheeseSuggestionsProvider"
+      android:name=".CheeseSuggestionsProvider"
+      android:authorities="danbroid.searchview.CheeseSuggestionsProvider"
       android:exported="false" />
   </application>
 

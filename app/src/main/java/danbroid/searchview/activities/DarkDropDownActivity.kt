@@ -1,11 +1,10 @@
-package danbroid.searchviewdemo.activities
+package danbroid.searchview.activities
 
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import danbroid.searchviewdemo.BaseActivity
+import danbroid.searchview.BaseActivity
 
 
 class DarkDropDownActivity : BaseActivity() {

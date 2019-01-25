@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo
+package danbroid.searchview
 
 import android.app.SearchManager
 import android.content.Context
@@ -12,9 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity.*
 import java.util.*

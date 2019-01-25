@@ -8,7 +8,7 @@ android {
   compileSdkVersion 28
 
   defaultConfig {
-    applicationId "danbroid.searchviewdemo"
+    applicationId "danbroid.searchview"
     minSdkVersion 14
     targetSdkVersion 28
     versionCode 8
@@ -16,12 +16,25 @@ android {
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
+
+
+  signingConfigs {
+    release {
+      storeFile file("/home/dan/.android/keystore_searchviewdemo")
+      storePassword KEYSTORE_PASSWORD
+      keyAlias "demo_searchview"
+      keyPassword KEYSTORE_PASSWORD
+    }
+  }
+
   buildTypes {
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.release
     }
   }
+
 }
 
 project.afterEvaluate {

@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo
+package danbroid.searchview
 
 import android.content.SearchRecentSuggestionsProvider
 

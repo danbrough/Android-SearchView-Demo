@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo.activities
+package danbroid.searchview.activities
 
 import android.app.SearchManager
 import android.content.Context
@@ -14,8 +14,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.cursoradapter.widget.CursorAdapter
-import danbroid.searchviewdemo.BaseActivity
-import danbroid.searchviewdemo.R
+import danbroid.searchview.BaseActivity
+import danbroid.searchview.R
 
 
 class CustomSuggestionLayoutActivity : BaseActivity() {

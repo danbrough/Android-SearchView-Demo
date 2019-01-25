@@ -1,4 +1,4 @@
-package danbroid.searchviewdemo
+package danbroid.searchview
 
 import android.content.Context
 import android.text.TextUtils

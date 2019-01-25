@@ -1,9 +1,9 @@
-package danbroid.searchviewdemo.activities
+package danbroid.searchview.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import danbroid.searchviewdemo.BaseActivity
+import danbroid.searchview.BaseActivity
 
 
 class MainActivity : BaseActivity() {
