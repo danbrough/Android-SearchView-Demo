@@ -19,9 +19,6 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity.*
 import java.util.*
 
-private val log by lazy {
-  org.slf4j.LoggerFactory.getLogger(BaseActivity::class.java)
-}
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -57,21 +54,20 @@ abstract class BaseActivity : AppCompatActivity() {
   }
 
 
-  fun addButton(title: CharSequence, onClick: () -> Unit) =
-      content_container.addView(
+  fun addButton(title: CharSequence, onClick: () -> Unit): View =
+      Button(this).apply {
+        text = title
 
-          Button(this).apply {
-            text = title
+        layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT)
 
-            layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT)
-
-            setOnClickListener {
-              onClick()
-            }
-          }
-      )
+        setOnClickListener {
+          onClick()
+        }
+      }.also {
+        content_container.addView(it)
+      }
 
 
   fun addNote(text: String) {
@@ -118,6 +114,12 @@ abstract class BaseActivity : AppCompatActivity() {
     closeSearchView()
   }
 
+  /**
+   * toolbar.collapseActionView() is enough to close any expanded action view
+   * while content_container.requestFocus() moves the focus elsewhere so that
+   * no parts of the action bar become highlighted when the search view is closed
+   *
+   */
   protected fun closeSearchView() {
     log.debug("closeSearchView()")
     toolbar.collapseActionView()
@@ -160,3 +162,7 @@ abstract class BaseActivity : AppCompatActivity() {
     return true
   }
 }
+
+private val log =
+    org.slf4j.LoggerFactory.getLogger(BaseActivity::class.java)
+

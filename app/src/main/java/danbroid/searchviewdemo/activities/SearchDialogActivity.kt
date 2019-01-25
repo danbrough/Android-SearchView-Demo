@@ -20,11 +20,6 @@ class SearchDialogActivity : BaseActivity() {
         else -> super.onOptionsItemSelected(item)
       }
 
-  override fun onSearchRequested(): Boolean {
-    log.trace("onSearchRequested()")
-    return super.onSearchRequested()
-  }
-
   override fun startSearch(initialQuery: String?, selectInitialQuery: Boolean, appSearchData: Bundle?, globalSearch: Boolean) {
     log.trace("startSearch() initalQuery: $initialQuery selectInitialQuery: $selectInitialQuery appSearchData: $appSearchData globalSearch: $globalSearch")
     super.startSearch(initialQuery, selectInitialQuery, appSearchData, globalSearch)
